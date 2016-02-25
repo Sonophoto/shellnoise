@@ -53,6 +53,3 @@ shellnoise.h as a guide of what to include.
 
 This would be a good project! Please let me know if you do. I don't 
 really use C++ at all anymore but lots & lots of people do.
-
-
-
