@@ -1,3 +1,5 @@
+#shellnoise#
+
 **Shellnoise is inspired by antirez/linenoise and uses linenoise as
 the foundation for a simple, single header library for making shells**
 
