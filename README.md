@@ -1,7 +1,8 @@
 #shellnoise#
 
-**Shellnoise is inspired by antirez/linenoise and uses linenoise as
-the foundation for a simple, single header library for making shells**
+**Shellnoise is inspired by antirez/linenoise and the UTF-8 extensions
+made by yhirose. Shellnoise uses linenoise as the foundation for a 
+simple, single header library for making shells**
 
 This should be ready to go by 01-Mar-2016, but _should always be 
 considered beta code until you test it thoroughly yourself_.
