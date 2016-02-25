@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Shellnoise by Sonophoto</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Shellnoise</h1>
+        <h2>A simple shell library based on antirez/linenoise</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Sonophoto/shellnoise/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Sonophoto/shellnoise/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Sonophoto/shellnoise" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="shellnoise" class="anchor" href="#shellnoise" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>shellnoise</h1>
+
+<p><strong>Shellnoise is inspired by antirez/linenoise and the UTF-8 extensions
+made by yhirose. Shellnoise uses linenoise as the foundation for a 
+simple, single header library for making shells</strong></p>
+
+<p>This should be ready to go by 01-Mar-2016, but <em>should always be 
+considered beta code until you test it thoroughly yourself</em>.</p>
+
+<p>Shellnoise was created to enable me to quickly develop a new command 
+processor for any library for manual testing and executing funcitons.
+Shellnoise is licensed under the same BSD license as Redis and linenoise.</p>
+
+<p><strong>Documentation</strong> is the code since only programmers are going to use this 
+anyway (I've never read a single char of documentation on linenoise other
+than the code ;-)</p>
+
+<p><strong>For a quickstart please see:</strong></p>
+
+<p><a href="https://github.com/antirez/linenoise/blob/master/example.c">https://github.com/antirez/linenoise/blob/master/example.c</a></p>
+
+<p><strong>To use this system:</strong></p>
+
+<p>'#include shellnoise.h' in your code</p>
+
+<p>compile shellnoise.c in your make file</p>
+
+<p>and build your a.out with shellnoise.o</p>
+
+<p><strong>OR</strong></p>
+
+<p>create a static (or dynamic) library </p>
+
+<p>'#include shellnoise.h' in your code</p>
+
+<p>and link with <code>-lshellnoise</code></p>
+
+<p><strong>OR</strong></p>
+
+<p>merge shellnoise.h and shellnoise.c into a single file header
+compilation unit and use that as shellnoise.o in your makefile</p>
+
+<p><strong>OR</strong></p>
+
+<p>If you want C++, please see: </p>
+
+<p>'<a href="https://github.com/yhirose/cpp-linenoise">https://github.com/yhirose/cpp-linenoise</a>'</p>
+
+<p>Be aware that the above is only linenoise with UTF-8 extensions but you
+are welcome to raid this project and make a shellnoise.cpp! Just use
+shellnoise.h as a guide of what to include. </p>
+
+<p>This would be a good project! Please let me know if you do. I don't 
+really use C++ at all anymore but lots &amp; lots of people do.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
