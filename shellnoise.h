@@ -83,7 +83,7 @@ typedef size_t (linenoiseUtf8PrevCharLen) (const char* buf, size_t buf_len, size
 typedef size_t (linenoiseUtf8NextCharLen) (const char* buf, size_t buf_len, size_t pos, size_t *col_len);
 typedef size_t (linenoiseUtf8ReadCode) (int fd, char* buf, size_t buf_len, int* cp);
 
-/* TODO: Verify that these functions need replaced with UTF-8 versions above)
+/* TODO: Verify that these functions need replaced with UTF-8 versions above) */
 
 void linenoiseSetEncodingFunctions(
     linenoiseUtf8PrevCharLen* prevCharLenFunc,
