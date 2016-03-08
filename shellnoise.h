@@ -59,32 +59,36 @@ typedef struct linenoiseCompletions {
   char **cvec;
 } linenoiseCompletions;
 
-typedef void(linenoiseCompletionCallback)(const char *, linenoiseCompletions *);
-void linenoiseSetCompletionCallback(linenoiseCompletionCallback *);
-void linenoiseAddCompletion(linenoiseCompletions *, const char *);
+typedef void(linenoiseCompletionCallback)(const char*, linenoiseCompletions *);
 
-char *linenoise(const char *prompt);
-int linenoiseHistoryAdd(const char *line);
-int linenoiseHistorySetMaxLen(int len);
-int linenoiseHistorySave(const char *filename);
-int linenoiseHistoryLoad(const char *filename);
-void linenoiseClearScreen(void);
-void linenoiseSetMultiLine(int ml);
-void linenoisePrintKeyCodes(void);
+void linenoiseSetCompletionCallback(linenoiseCompletionCallback*);
+void linenoiseAddCompletion(linenoiseCompletions*, const char*);
 
-typedef size_t (linenoisePrevCharLen)(const char *buf, size_t buf_len, size_t pos, size_t *col_len);
-typedef size_t (linenoiseNextCharLen)(const char *buf, size_t buf_len, size_t pos, size_t *col_len);
-typedef size_t (linenoiseReadCode)(int fd, char *buf, size_t buf_len, int* c);
+char* linenoise(const char* prompt);
+int   linenoiseHistoryAdd(const char* line);
+int   linenoiseHistorySetMaxLen(int len);
+int   linenoiseHistorySave(const char *filename);
+int   linenoiseHistoryLoad(const char *filename);
+void  linenoiseClearScreen(void);
+void  linenoiseSetMultiLine(int ml);
+void  linenoisePrintKeyCodes(void);
+
+/* These are the non-UTF8 functions from linenoise, I'm not groking UTF8 fully yet, so leaving here... */
+typedef size_t (linenoisePrevCharLen)(const char* buf, size_t buf_len, size_t pos, size_t *col_len);
+typedef size_t (linenoiseNextCharLen)(const char* buf, size_t buf_len, size_t pos, size_t *col_len);
+typedef size_t (linenoiseReadCode)(int fd, char* buf, size_t buf_len, int* c);
+
+/* UTF-8 functions from yhirose */
+typedef size_t (linenoiseUtf8PrevCharLen) (const char* buf, size_t buf_len, size_t pos, size_t *col_len);
+typedef size_t (linenoiseUtf8NextCharLen) (const char* buf, size_t buf_len, size_t pos, size_t *col_len);
+typedef size_t (linenoiseUtf8ReadCode) (int fd, char* buf, size_t buf_len, int* cp);
+
+/* TODO: Verify that these functions need replaced with UTF-8 versions above)
 
 void linenoiseSetEncodingFunctions(
     linenoisePrevCharLen *prevCharLenFunc,
     linenoiseNextCharLen *nextCharLenFunc,
     linenoiseReadCode *readCodeFunc);
-
-/* UTF-8 functions from yhirose */
-size_t linenoiseUtf8PrevCharLen(const char* buf, size_t buf_len, size_t pos, size_t *col_len);
-size_t linenoiseUtf8NextCharLen(const char* buf, size_t buf_len, size_t pos, size_t *col_len);
-size_t linenoiseUtf8ReadCode(int fd, char* buf, size_t buf_len, int* cp);
 
 /* Shell functions from sonophoto */
 typedef struct shellnoiseBuiltins {
