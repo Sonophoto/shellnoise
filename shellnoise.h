@@ -87,6 +87,21 @@ size_t linenoiseUtf8NextCharLen(const char* buf, size_t buf_len, size_t pos, siz
 size_t linenoiseUtf8ReadCode(int fd, char* buf, size_t buf_len, int* cp);
 
 /* Shell functions from sonophoto */
+typedef struct shellnoiseBuiltins {
+  int    SN_FALL_THRU;  /* do unknown commands fall through to login shell? */
+  int    SN_ANSI_COLOR; /* output ANSI color escapes? */
+  char*  SN_ANSI_THEME; /* Name of color theme, NULL = default */
+  char** aliasTable;    /* LL or hash of alias tuples */
+  char** varTable;      /* LL or hash of shellnoise variable tuples */
+  char** dirStack;      /* Stack of pushd and popd operations */
+  /* cd     function pointer         cd: change to a directory checked by realpath() */
+  /* pushd  function pointer      pushd: push a directory onto dirStack and cd to it */
+  /* popd   function pointer       popd: pop a directory from dirStack and cd to it */
+  /* alias  function pointer      alias: set command aliases */
+  /* shvar  function pointer      shvar: set or read shellnoise system variables */
+  /* edit   function pointer;      edit: run $(EDITOR) or nano */
+  /* shell  function pointer:     shell: run $(SHELL) of /bin/bash */
+} shellnoiseBuiltins
 
 #ifdef __cplusplus
 }
