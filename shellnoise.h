@@ -86,9 +86,9 @@ typedef size_t (linenoiseUtf8ReadCode) (int fd, char* buf, size_t buf_len, int* 
 /* TODO: Verify that these functions need replaced with UTF-8 versions above)
 
 void linenoiseSetEncodingFunctions(
-    linenoisePrevCharLen *prevCharLenFunc,
-    linenoiseNextCharLen *nextCharLenFunc,
-    linenoiseReadCode *readCodeFunc);
+    linenoiseUtf8PrevCharLen* prevCharLenFunc,
+    linenoiseUtf8NextCharLen* nextCharLenFunc,
+    linenoiseUtf8ReadCode* readCodeFunc);
 
 /* Shell functions from sonophoto */
 typedef struct shellnoiseBuiltins {
