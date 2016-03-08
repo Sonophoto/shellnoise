@@ -1,15 +1,18 @@
-/* shellnoise.c -- VERSION 0.1
+/* shellnoise.c -- VERSION 0.0.1
  *
- *         Guerrilla shell library against the idea
- *   that a shell lib needs to be 20,000+ lines of C code.
+ *             A BSD Licensed Guerrilla Shell Library 
+ *   Against the idea that a shell lib needs 20,000K lines of C code.
  *
  * You can find the latest source code at:
  *
- *   http://github.com/sonophoto/shellnoise
+ *               http://github.com/sonophoto/shellnoise
  *
  * Makes a number of crazy assumptions that happen to be true in 99.9942%
  * of the 2010 - 2016 unix/POSIX/GNU/*Linux/*BSD computers around.
  *
+ 
+ * ------------------------------------------------------------------------
+ * B S D  T W O  C L A U S E  L I C E N S E  A N D  C O P Y R I G H T S
  * ------------------------------------------------------------------------
  *
  * Copyright (c) 2010-2014, Salvatore Sanfilippo <antirez at gmail dot com>
@@ -46,23 +49,39 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ 
  * ------------------------------------------------------------------------
- *
- * References:
- * - http://invisible-island.net/xterm/ctlseqs/ctlseqs.html
- * - http://www.3waylabs.com/nw/WWW/products/wizcon/vt220.html
- *
- * Todo list:
+ * F E A T U R E S   S P E C   A N D   T O D O   L I S T
+ * ------------------------------------------------------------------------
+ * Todo list (from linenoise):
  * - Filter bogus Ctrl+<char> combinations.
- * - Win32 support
+ * - To the devil with Win32/Windows and any other non-POSIX systems
  *
- * Bloat:
- * - History search like Ctrl+r in readline?
+ * Todo Shellnoise 
+ *       (a simple shell building system in the tradition of linenoise)
+ *       (Static linked single file include, simple, plain, self documented)
+ 
+ * - Create a very basic type of shell for creating library interfaces:
+ *   - Greatly improved tab completion with command and filesystem awareness
+ *   - simple variable system (shvar "a" = "b"; shvar "a" returns b) (string = string)
+ *   - simple alias system (alias "a" "b"; "a" returns "b") (name = command)
+ *   - simple job system (&& || Ctrl-z bj fj lj background, foreground, list)
+ *   - simple pipeline system (> >> < | tee STIN STOUT STERR)
+ *   - built-in commands such as cd, pushd, popd, shvar, tee, bj, fj, lj, etc 
+ *   - Under 5000K lines of C code in the style of redis and linenoise
  *
+ 
+ * ------------------------------------------------------------------------
+ * T E R M I N A L   C O N T R O L   T H E O R Y   A N D   M E T H O D 
+ * ------------------------------------------------------------------------
  * List of escape sequences used by this program, we do everything just
  * with three sequences. In order to be so cheap we may have some
  * flickering effect with some slow terminal, but the lesser sequences
  * the more compatible.
+ *
+ * References:
+ * - http://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+ * - http://www.3waylabs.com/nw/WWW/products/wizcon/vt220.html
  *
  * EL (Erase Line)
  *    Sequence: ESC [ n K
@@ -89,11 +108,11 @@
  * When multi line mode is enabled, we also use an additional escape
  * sequence. However multi line editing is disabled by default.
  *
- * CUU (Cursor Up)
+ * CUU (CUrsor Up)
  *    Sequence: ESC [ n A
  *    Effect: moves cursor up of n chars.
  *
- * CUD (Cursor Down)
+ * CUD (CUrsor Down)
  *    Sequence: ESC [ n B
  *    Effect: moves cursor down of n chars.
  *
@@ -101,11 +120,11 @@
  * are used in order to clear the screen and position the cursor at home
  * position.
  *
- * CUP (Cursor position)
+ * CUP (CUrsor Position)
  *    Sequence: ESC [ H
  *    Effect: moves the cursor to upper left corner
  *
- * ED (Erase display)
+ * ED (Erase Display)
  *    Sequence: ESC [ 2 J
  *    Effect: clear the whole screen
  *
