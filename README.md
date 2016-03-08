@@ -3,8 +3,10 @@
 **Warning - I am in process of putting this together, currently it is a mess**
 
 **Shellnoise is inspired by antirez/linenoise and the UTF-8 extensions
-made by yhirose. Shellnoise uses linenoise as the foundation for a 
-simple, single header library for making shells**
+made by yhirose. Shellnoise is asingle header library for making very 
+usable shells for any Engine, Object, or library of code. I am using the 
+best of linenoise, bits of this and that and my own code to make small, 
+tight, modern shells - but absolutely no kitchen sinks**
 
 This should be ready to go by 01-Apr-2016, but _should always be 
 considered beta code until you test it thoroughly yourself_.
@@ -15,12 +17,11 @@ Shellnoise is licensed under the same BSD license as Redis and linenoise.
 
 **Documentation** is the code since only programmers are going to use this 
 anyway (I've never read a single char of documentation on linenoise other
-than the code ;-)
+than the code ;-) I'm trying to use a pseudo literate style of commenting.
 
-**For a quickstart please see:**
+**For a linenoise quickstart please see:**
 
 https://github.com/antirez/linenoise/blob/master/example.c
-
 
 **To use this system:**
 
@@ -49,9 +50,8 @@ If you want C++, please see:
 
 'https://github.com/yhirose/cpp-linenoise'
 
-Be aware that the above is only linenoise with UTF-8 extensions but you
-are welcome to raid this project and make a shellnoise.cpp! Just use
-shellnoise.h as a guide of what to include. 
+(it is a goal of Shellnoise to work with C++ out of the box, but its not there yet...)
 
-This would be a good project! Please let me know if you do. I don't 
-really use C++ at all anymore but lots & lots of people do.
+Be aware that the above is only linenoise with UTF-8 extensions but you are welcome to raid this project and make a shellnoise.cpp! Just use shellnoise.h as a guide of what to include. 
+
+This would be a good project! Please let me know if you do. I don't really use C++ at all anymore but lots & lots of people do.
