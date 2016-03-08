@@ -9,12 +9,11 @@
  *
  * Makes a number of crazy assumptions that happen to be true in 99.9942%
  * of the 2010 - 2016 unix/POSIX/GNU/*Linux/*BSD computers around.
- *
+ */
  
- * ------------------------------------------------------------------------
+/* ------------------------------------------------------------------------
  * B S D  T W O  C L A U S E  L I C E N S E  A N D  C O P Y R I G H T S
  * ------------------------------------------------------------------------
- *
  * Copyright (c) 2010-2014, Salvatore Sanfilippo <antirez at gmail dot com>
  * Copyright (c) 2010-2013, Pieter Noordhuis <pcnoordhuis at gmail dot com>
  *
@@ -48,9 +47,9 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
+ */
  
- * ------------------------------------------------------------------------
+/* ------------------------------------------------------------------------
  * F E A T U R E S   S P E C   A N D   T O D O   L I S T
  * ------------------------------------------------------------------------
  * Todo list (from linenoise):
@@ -60,7 +59,7 @@
  * Todo Shellnoise 
  *       (a simple shell building system in the tradition of linenoise)
  *       (Static linked single file include, simple, plain, self documented)
- 
+ *
  * - Create a very basic type of shell for creating library interfaces:
  *   - Greatly improved tab completion with command and filesystem awareness
  *   - simple variable system (shvar "a" = "b"; shvar "a" returns b) (string = string)
@@ -69,9 +68,9 @@
  *   - simple pipeline system (> >> < | tee STIN STOUT STERR)
  *   - built-in commands such as cd, pushd, popd, shvar, tee, bj, fj, lj, etc 
  *   - Under 5000K lines of C code in the style of redis and linenoise
- *
+ */
  
- * ------------------------------------------------------------------------
+/* ------------------------------------------------------------------------
  * T E R M I N A L   C O N T R O L   T H E O R Y   A N D   M E T H O D 
  * ------------------------------------------------------------------------
  * List of escape sequences used by this program, we do everything just
@@ -127,7 +126,6 @@
  * ED (Erase Display)
  *    Sequence: ESC [ 2 J
  *    Effect: clear the whole screen
- *
  */
 
 #include <termios.h>
@@ -143,19 +141,18 @@
 #include <unistd.h>
 #include "linenoise.h"
 
-#define LINENOISE_DEFAULT_HISTORY_MAX_LEN 100
-#define LINENOISE_MAX_LINE 4096
-/* this is used by both linenoise and UTF-8 functions */
-#define UNUSED(x) (void)(x)
+#define SHELLNOISE_DEFAULT_HISTORY_MAX_LEN 100 /* Maximum number of history entries */
+#define SHELLNOISE_MAX_LINE 4096 /* Maximum number of chars + NULL on an inputline */
+#define UNUSED(x) (void)(x) /* this is used by both linenoise and UTF-8 functions */
 
 static char *unsupported_term[] = {"dumb","cons25","emacs",NULL};
 static linenoiseCompletionCallback *completionCallback = NULL;
 
-static struct termios orig_termios; /* In order to restore at exit.*/
+static struct termios orig_termios; /* In order to restore at exit. termios.h*/
 static int rawmode = 0; /* For atexit() function to check if restore is needed*/
 static int mlmode = 0;  /* Multi line mode. Default is single line. */
 static int atexit_registered = 0; /* Register atexit just 1 time. */
-static int history_max_len = LINENOISE_DEFAULT_HISTORY_MAX_LEN;
+static int history_max_len = SHELLNOISE_DEFAULT_HISTORY_MAX_LEN;
 static int history_len = 0;
 static char **history = NULL;
 
@@ -588,7 +585,7 @@ static int isAnsiEscape(const char *buf, size_t buf_len, size_t* len) {
 /* Get column length of prompt text
  */
 static size_t promptTextColumnLen(const char *prompt, size_t plen) {
-    char buf[LINENOISE_MAX_LINE];
+    char buf[SHELLNOISE_MAX_LINE];
     size_t buf_len = 0;
     size_t off = 0;
     while (off < plen) {
@@ -1113,7 +1110,7 @@ static int linenoiseRaw(char *buf, size_t buflen, const char *prompt) {
  * editing function or uses dummy fgets() so that you will be able to type
  * something even in the most desperate of the conditions. */
 char *linenoise(const char *prompt) {
-    char buf[LINENOISE_MAX_LINE];
+    char buf[SHELLNOISE_MAX_LINE];
     int count;
 
     if (isUnsupportedTerm()) {
@@ -1121,7 +1118,7 @@ char *linenoise(const char *prompt) {
 
         printf("%s",prompt);
         fflush(stdout);
-        if (fgets(buf,LINENOISE_MAX_LINE,stdin) == NULL) return NULL;
+        if (fgets(buf,SHELLNOISE_MAX_LINE,stdin) == NULL) return NULL;
         len = strlen(buf);
         while(len && (buf[len-1] == '\n' || buf[len-1] == '\r')) {
             len--;
@@ -1129,7 +1126,7 @@ char *linenoise(const char *prompt) {
         }
         return strdup(buf);
     } else {
-        count = linenoiseRaw(buf,LINENOISE_MAX_LINE,prompt);
+        count = linenoiseRaw(buf,SHELLNOISE_MAX_LINE,prompt);
         if (count == -1) return NULL;
         return strdup(buf);
     }
@@ -1243,11 +1240,11 @@ int linenoiseHistorySave(const char *filename) {
  * on error -1 is returned. */
 int linenoiseHistoryLoad(const char *filename) {
     FILE *fp = fopen(filename,"r");
-    char buf[LINENOISE_MAX_LINE];
+    char buf[SHELLNOISE_MAX_LINE];
 
     if (fp == NULL) return -1;
 
-    while (fgets(buf,LINENOISE_MAX_LINE,fp) != NULL) {
+    while (fgets(buf,SHELLNOISE_MAX_LINE,fp) != NULL) {
         char *p;
 
         p = strchr(buf,'\r');
