@@ -1,5 +1,12 @@
 /* shellnoise.c -- VERSION 0.0.1
  *
+ *                 _          _ _             _          
+ *  BSD /      ___| |__   ___| | |_ __   ___ (_)___  ___ 
+ *     / C99  / __| '_ \ / _ \ | | '_ \ / _ \| / __|/ _ \
+ *            \__ \ | | |  __/ | | | | | (_) | \__ \  __/
+ *            |___/_| |_|\___|_|_|_| |_|\___/|_|___/\___|
+ *                                          
+ *
  *             A BSD Licensed Guerrilla Shell Library 
  *   Against the idea that a shell lib needs 20,000K lines of C code.
  *

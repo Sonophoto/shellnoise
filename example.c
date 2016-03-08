@@ -1,27 +1,19 @@
-/* LICENSE 
- *                 _          _ _             _          
- *  BSD /      ___| |__   ___| | |_ __   ___ (_)___  ___ 
- *     / C99  / __| '_ \ / _ \ | | '_ \ / _ \| / __|/ _ \
- *            \__ \ | | |  __/ | | | | | (_) | \__ \  __/
- *            |___/_| |_|\___|_|_|_| |_|\___/|_|___/\___|
+/* example.c -- VERSION 0.0.1
  *
- *             A BSD Licensed Guerrilla Shell Library 
- *   Against the idea that a shell lib needs 20,000K lines of C code.
+ * Implementation example of using the shellnoise code to create a 
+ * simple command line interface that allows unrecognized commands
+ * to fall through to the underlying shell command processor...
  *
+ * This example provides a fully working shell, you just need to add
+ * your commands and logic to example_cmds.c, your line completion hints in 
+ * example_comps.c and your help info to example_help.c
  *
- *               http://github.com/sonophoto/shellnoise
+ * 
  */
  
 /* ------------------------------------------------------------------------
  * B S D  T W O  C L A U S E  L I C E N S E  A N D  C O P Y R I G H T S
  * ------------------------------------------------------------------------
- * Copyright (c) 2010-2014, Salvatore Sanfilippo <antirez at gmail dot com>
- * Copyright (c) 2010-2013, Pieter Noordhuis <pcnoordhuis at gmail dot com>
- *
- * UTF-8 Utility Functions:
- * Copyright (c)      2015, Yhirose [github.com/yhirose]
- *
- * Additional Shell Functions:
  *  Copyright (c) 2015-2016, Brig Young [github.com/sonophoto]
  *
  *                ----- All rights reserved. -----

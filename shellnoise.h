@@ -1,17 +1,26 @@
-/* shellnoise.h -- VERSION 0.1
+/* shellnoise.h -- VERSION 0.0.1
  *
- *         Guerrilla shell library against the idea
- *   that a shell lib needs to be 20,000+ lines of C code.
+ *                 _          _ _             _          
+ *  BSD /      ___| |__   ___| | |_ __   ___ (_)___  ___ 
+ *     / C99  / __| '_ \ / _ \ | | '_ \ / _ \| / __|/ _ \
+ *            \__ \ | | |  __/ | | | | | (_) | \__ \  __/
+ *            |___/_| |_|\___|_|_|_| |_|\___/|_|___/\___|
+ *                                          
+ *
+ *             A BSD Licensed Guerrilla Shell Library 
+ *   Against the idea that a shell lib needs 20,000K lines of C code.
  *
  * You can find the latest source code at:
  *
- *   http://github.com/sonophoto/shellnoise
+ *               http://github.com/sonophoto/shellnoise
  *
  * Makes a number of crazy assumptions that happen to be true in 99.9942%
  * of the 2010 - 2016 unix/POSIX/GNU/*Linux/*BSD computers around.
- *
+ */
+ 
+/* ------------------------------------------------------------------------
+ * B S D  T W O  C L A U S E  L I C E N S E  A N D  C O P Y R I G H T S
  * ------------------------------------------------------------------------
- *
  * Copyright (c) 2010-2014, Salvatore Sanfilippo <antirez at gmail dot com>
  * Copyright (c) 2010-2013, Pieter Noordhuis <pcnoordhuis at gmail dot com>
  *
@@ -19,7 +28,7 @@
  * Copyright (c)      2015, Yhirose [github.com/yhirose]
  *
  * Additional Shell Functions:
- * Copyright (c) 2015-2016, Brig Young [github.com/sonophoto]
+ *  Copyright (c) 2015-2016, Brig Young [github.com/sonophoto]
  *
  *                ----- All rights reserved. -----
  *
@@ -46,7 +55,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+ 
 #ifndef SHELLNOISE_SP_H
 #define SHELLNOISE_SP_H
 
