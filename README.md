@@ -4,7 +4,7 @@
 made by yhirose. Shellnoise uses linenoise as the foundation for a 
 simple, single header library for making shells**
 
-This should be ready to go by 01-Mar-2016, but _should always be 
+This should be ready to go by 01-Apr-2016, but _should always be 
 considered beta code until you test it thoroughly yourself_.
 
 Shellnoise was created to enable me to quickly develop a new command 
