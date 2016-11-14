@@ -1,5 +1,5 @@
-shellnoise:  
-        $(CC) -Wall -W -g -o shellnoise shellnoise.c
+example:  
+        $(CC) -Wall -W -g -o example example.c
 
 clean:
-        rm -f *.o shellnoise history.txt
+        rm -f *.o example history.txt
