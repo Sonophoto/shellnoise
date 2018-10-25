@@ -1,5 +1,5 @@
 example:  
-        $(CC) -Wall -W -g -o example example.c
+	$(CC) -Wall -W -g -o example example.c
 
 clean:
-        rm -f *.o example history.txt
+	rm -f *.o example history.txt
